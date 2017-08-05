@@ -1,6 +1,6 @@
-'use strict';
 
 (function () {
+    'use strict';
     angular.module('app').controller('RecipesController', function ($scope, $location, dataService) {
         dataService.getRecipes (function (response) {
             $scope.recipes = response.data;
@@ -9,6 +9,10 @@
         dataService.getCategories (function (response) {
             $scope.categories = response.data;
         });
+
+        $scope.sendRecipeToService = function (recipe) {
+            dataService.selectedRecipe = recipe;
+        };
 
         $scope.updateRecipeList = function () {
             if($scope.category) {

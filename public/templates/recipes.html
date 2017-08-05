@@ -19,7 +19,7 @@
 </div>
 
 <div ng-repeat="recipe in recipes" ng-show="recipes.length" class="grid-100 row addHover">
-  <a ng-href="#!/edit/{{recipe._id}}">
+  <a ng-href="#!/edit/{{recipe._id}}" ng-click="sendRecipeToService(recipe)">
     <div class="grid-70">
       <p>{{recipe.name}}</p>
     </div>
@@ -28,7 +28,7 @@
     <div class="grid-30">
       <div class="flush-right">
         <p>
-          <a ng-href="#!/edit/{{recipe._id}}"> <img src="images/edit.svg" height="12px"> Edit </a>
+          <a ng-href="#!/edit/{{recipe._id}}" ng-click="sendRecipeToService(recipe)"> <img src="images/edit.svg" height="12px"> Edit </a>
           <a ng-click="deleteRecipe(recipe, $index)" class="no-action-link"> <img src="images/delete.svg" height="12px"> Delete </a>
         </p>
       </div>

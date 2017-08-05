@@ -1,15 +1,11 @@
 <div class="grid-100 row controls">
   <div class="grid-50">
-    <!-- TODO Add a binding expression to display the recipe name
-      when editing a recipe. When adding a recipe, display the
-      static text 'Add New Recipe'. -->
-    <h2>Add/Edit Recipe</h2>
+    <h2 ng-hide="!recipe">{{recipe.name}}</h2>
+    <h2 ng-hide="recipe">Add/Edit Recipe</h2>
   </div>
   <div class="grid-50">
     <div class="flush-right">
-      <!-- TODO Add directives to both the "Save Recipe" and "Cancel"
-        buttons in order to handle user clicks. -->
-      <button>Save Recipe</button>
+      <button ng-click="save()">Save Recipe</button>
       <button ng-click="cancel()" class="secondary">Cancel</button>
     </div>
   </div>
@@ -24,9 +20,7 @@
   </div>
   <div class="grid-40">
     <p>
-      <!-- TODO Add a directive to this input element to bind its value
-        to the recipe model's `name` property. -->
-      <input type="text">
+      <input ng-model="recipe.name" type="text">
     </p>
   </div>
 </div>
@@ -40,9 +34,7 @@
   </div>
   <div class="grid-60">
     <p>
-      <!-- TODO Add a directive to this textarea element to bind its content
-        to the recipe model's `description` property. -->
-      <textarea></textarea>
+      <textarea ng-model="recipe.description"></textarea>
     </p>
   </div>
 </div>
@@ -59,8 +51,9 @@
       <!-- TODO Add directives to this select element to bind its value
         to the recipe model's `category` property and to populate the list
         with the categories from the database. -->
-      <select>
+      <select ng-model="recipe.category">
         <option value="">All Categories</option>
+        <option ng-model="category" ng-repeat="category in categories" ng-value="category.name">{{category.name}}</option>
       </select>
     </p>
   </div>
