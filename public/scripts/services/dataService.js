@@ -32,10 +32,5 @@
             console.log("The " + recipe.name + " recipe has been deleted!");
             // other logic to delete from database
         };
-
-        this.deleteIngredient = function (ingredient) {
-            console.log("The " + ingredient.foodItem + " ingredient has been deleted!");
-            // other logic to delete from database
-        };
     });
 })();

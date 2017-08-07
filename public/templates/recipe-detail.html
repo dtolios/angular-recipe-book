@@ -128,18 +128,14 @@
     </div>
     <div class="grid-5 pad-top">
       <p class="flush-right">
-        <!-- TODO Add a directive to this anchor element so that you can
-          delete the recipe ingredient when the user clicks on the 'Delete' link. -->
-        <a ng-click="deleteIngredient(ingredient, $index)" class="no-action-link"> <img src="images/delete.svg" height="12px"> </a>
+        <a ng-click="deleteIngredient($index)" class="no-action-link"> <img src="images/delete.svg" height="12px"> </a>
       </p>
     </div>
   </div>
 
   <div class="prefix-20 grid-80 add-row">
     <p>
-      <!-- TODO Add a directive to this button in order to handle
-        when the user clicks to add a new recipe ingredient. -->
-      <button>+ Add Another Ingredient</button>
+      <button ng-click="addIngredient()">+ Add Another Ingredient</button>
     </p>
   </div>
 
@@ -166,18 +162,14 @@
     </div>
     <div class="grid-5 pad-top">
       <p class="flush-right">
-        <!-- TODO Add a directive to this anchor element so that you can
-          delete the recipe step when the user clicks on the 'Delete' link. -->
-        <a class="no-action-link"> <img src="images/delete.svg" height="12px"> </a>
+        <a ng-click="deleteStep($index)" class="no-action-link"> <img src="images/delete.svg" height="12px"> </a>
       </p>
     </div>
   </div>
 
   <div class="prefix-20 grid-80 add-row">
     <p>
-     <!-- TODO Add a directive to this button in order to handle
-       when the user clicks to add a new recipe step. -->
-     <button>+ Add Another Step</button>
+     <button ng-click="addStep()">+ Add Another Step</button>
     </p>
   </div>
 

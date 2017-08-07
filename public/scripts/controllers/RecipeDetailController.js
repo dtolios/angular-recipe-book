@@ -24,14 +24,33 @@
             $scope.foodItems = response.data;
         });
 
+        $scope.addIngredient = function () {
+            const newIngredient = {
+                foodItem: '',
+                condition: '',
+                amount: ''
+            };
+            $scope.recipe.ingredients.push(newIngredient);
+        };
+
+        $scope.addStep = function () {
+            const newStep = {
+                description: ''
+            };
+            $scope.recipe.steps.push(newStep);
+        };
+
         $scope.cancel = function () {
             dataService.selectedRecipe = {};
             $location.path('/');
         };
 
-        $scope.deleteIngredient = function (ingredient, $index) {
-            dataService.deleteIngredient(ingredient);
+        $scope.deleteIngredient = function ($index) {
             $scope.recipe.ingredients.splice($index, 1);
+        };
+
+        $scope.deleteStep = function ($index) {
+            $scope.recipe.steps.splice($index, 1);
         };
     });
 })();
