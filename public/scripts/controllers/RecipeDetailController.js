@@ -62,5 +62,9 @@
         $scope.deleteIngredient = function ($index) {
             $scope.recipe.ingredients.splice($index, 1);
         };
+
+        $scope.deleteStep = function ($index) {
+            $scope.recipe.steps.splice($index, 1);
+        };
     });
 })();
