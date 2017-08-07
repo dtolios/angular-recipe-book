@@ -113,8 +113,9 @@
         <!-- TODO Add directives to this select element to bind its value
           to the recipe ingredient model's `foodItem` property and to
           populate the list with the food items from the database. -->
-        <select>
+        <select ng-model="ingredient.foodItem">
           <option value="">Select Item</option>
+          <option ng-model="foodItem" ng-repeat="foodItem in foodItems" ng-value="foodItem.name">{{foodItem.name}}</option>
         </select>
       </p>
     </div>

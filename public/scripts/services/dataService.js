@@ -20,6 +20,10 @@
             $http.get('api/recipes?category=' + category.name).then(callback);
         };
 
+        this.getFoodItems = function (callback) {
+            $http.get('api/fooditems').then(callback);
+        };
+
         this.createRecipe = function (callback) {
             $http.post('api/recipes').then(callback);
         };

@@ -20,6 +20,10 @@
             $scope.categories = response.data;
         });
 
+        dataService.getFoodItems (function (response) {
+            $scope.foodItems = response.data;
+        });
+
         $scope.cancel = function () {
             dataService.selectedRecipe = {};
             $location.path('/');
