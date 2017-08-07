@@ -48,9 +48,6 @@
   </div>
   <div class="grid-30">
     <p>
-      <!-- TODO Add directives to this select element to bind its value
-        to the recipe model's `category` property and to populate the list
-        with the categories from the database. -->
       <select ng-model="recipe.category">
         <option value="">All Categories</option>
         <option ng-model="category" ng-repeat="category in categories" ng-value="category.name">{{category.name}}</option>
@@ -68,9 +65,7 @@
   </div>
   <div class="grid-20">
     <p>
-      <!-- TODO Add a directive to this input element to bind its value
-        to the recipe model's `prepTime` property. -->
-      <input type="number">
+      <input ng-model="recipe.prepTime" type="number">
     </p>
   </div>
 </div>
@@ -84,9 +79,7 @@
   </div>
   <div class="grid-20">
     <p>
-      <!-- TODO Add a directive to this input element to bind its value
-        to the recipe model's `cookTime` property. -->
-      <input type="number">
+      <input ng-model="recipe.cookTime" type="number">
     </p>
   </div>
 </div>
@@ -114,9 +107,7 @@
     </p>
   </div>
 
-  <!-- TODO Add a directive to this div element so that it repeats
-    for each recipe ingredient to display. -->
-  <div class="ingredient-row">
+  <div ng-repeat="ingredient in recipe.ingredients" class="ingredient-row">
     <div class="prefix-20 grid-30">
       <p>
         <!-- TODO Add directives to this select element to bind its value
@@ -129,16 +120,12 @@
     </div>
     <div class="grid-30">
       <p>
-        <!-- TODO Add a directive to this input element to bind its value
-          to the recipe ingredient model's `condition` property. -->
-        <input type="text">
+        <input ng-model="ingredient.condition" type="text">
       </p>
     </div>
     <div class="grid-15">
       <p>
-        <!-- TODO Add a directive to this input element to bind its value
-          to the recipe ingredient model's `amount` property. -->
-        <input type="text">
+        <input ng-model="ingredient.amount" type="text">
       </p>
     </div>
     <div class="grid-5 pad-top">
@@ -173,14 +160,10 @@
     </p>
   </div>
 
-  <!-- TODO Add a directive to this div element so that it repeats
-    for each recipe step to display. -->
-  <div class="step-row">
+  <div ng-repeat="step in recipe.steps" class="step-row">
     <div class="prefix-20 grid-75">
       <p>
-        <!-- TODO Add a directive to this input element to bind its value
-          to the recipe step model's `description` property. -->
-        <input type="text">
+        <input ng-model="step.description" type="text">
       </p>
     </div>
     <div class="grid-5 pad-top">
