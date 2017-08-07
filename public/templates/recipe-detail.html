@@ -1,7 +1,7 @@
 <div class="grid-100 row controls">
   <div class="grid-50">
-    <h2 ng-hide="!recipe">{{recipe.name}}</h2>
-    <h2 ng-hide="recipe">Add/Edit Recipe</h2>
+    <h2 ng-show="recipe._id && recipe.name !== ''">{{recipe.name}}</h2>
+    <h2 ng-show="!recipe._id || (recipe._id && recipe.name === '')">Add/Edit Recipe</h2>
   </div>
   <div class="grid-50">
     <div class="flush-right">

@@ -4,8 +4,17 @@
     angular.module('app').controller('RecipeDetailController', function ($scope, $location, dataService) {
         // conditional logic for whether user is creating a new recipe or editing an existing recipe
         if($location.path() === '/add') {
+            $scope.recipe = {
+                name: '',
+                description: '',
+                category: '',
+                prepTime: 0,
+                cookTime: 0,
+                ingredients: [],
+                steps: []
+            };
             $scope.save = function () {
-                dataService.createRecipe(function () {
+                dataService.createRecipe($scope.recipe, function () {
                     $location.path('/');
                 });
             }
@@ -14,6 +23,11 @@
             dataService.getRecipeByID(dataService.selectedRecipe._id, function (response) {
                 $scope.recipe = response.data;
             });
+            $scope.save = function () {
+                dataService.updateRecipe($scope.recipe, function () {
+                    $location.path('/');
+                });
+            }
         }
 
         dataService.getCategories (function (response) {
@@ -47,10 +61,6 @@
 
         $scope.deleteIngredient = function ($index) {
             $scope.recipe.ingredients.splice($index, 1);
-        };
-
-        $scope.deleteStep = function ($index) {
-            $scope.recipe.steps.splice($index, 1);
         };
     });
 })();

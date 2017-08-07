@@ -24,13 +24,17 @@
             $http.get('api/fooditems').then(callback);
         };
 
-        this.createRecipe = function (callback) {
-            $http.post('api/recipes').then(callback);
+        this.createRecipe = function (recipe, callback) {
+            $http.post('api/recipes', recipe).then(callback);
         };
 
-        this.deleteRecipe = function (recipe) {
+        this.updateRecipe = function (recipe, callback) {
+            $http.put('api/recipes/' + recipe._id, recipe).then(callback);
+        };
+
+        this.deleteRecipe = function (recipe, callback) {
             console.log("The " + recipe.name + " recipe has been deleted!");
-            // other logic to delete from database
+            $http.delete('api/recipes/' + recipe._id).then(callback);
         };
     });
 })();
