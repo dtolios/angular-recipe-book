@@ -32,8 +32,32 @@
         };
 
         $scope.deleteRecipe = function (recipe, $index) {
-            dataService.deleteRecipe(recipe);
-            $scope.recipes.splice($index, 1);
+
+            const modal = new tingle.modal({
+                footer: true,
+                stickyFooter: false,
+                closeMethods: ['overlay', 'button', 'escape'],
+                closeLabel: "Close",
+                cssClass: ['custom-class-1', 'custom-class-2'],
+            });
+
+            // set content
+            modal.setContent('<h1>Are you sure you want to delete the ' + recipe.name + ' recipe?</h1>');
+
+            // Delete recipe button
+            modal.addFooterBtn('Yes, delete recipe', 'tingle-btn tingle-btn--danger', function() {
+                dataService.deleteRecipe(recipe);
+                $scope.recipes.splice($index, 1);
+                modal.close();
+            });
+
+            // Cancel button
+            modal.addFooterBtn('Cancel', 'tingle-btn tingle-btn--default', function() {
+                modal.close();
+            });
+
+            // open modal
+            modal.open();
         };
     });
 })();

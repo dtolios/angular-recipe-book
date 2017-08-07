@@ -34,6 +34,12 @@ app.get('/vendor/angular.js', function(req, res) {
 app.get('/vendor/angular-route.js', function(req, res) {
   res.sendFile(path.join(__dirname, '../node_modules', 'angular-route', 'angular-route.js'));
 });
+app.get('/vendor/tingle.min.js', function(req, res) {
+    res.sendFile(path.join(__dirname, '../node_modules', 'tingle.js/dist', 'tingle.min.js'));
+});
+app.get('/vendor/tingle.min.css', function(req, res) {
+    res.sendFile(path.join(__dirname, '../node_modules', 'tingle.js/dist', 'tingle.min.css'));
+});
 
 // recipes
 var recipeRouter = require('./api/routes/recipeRoutes.js')(db.recipes, db.foodItems);

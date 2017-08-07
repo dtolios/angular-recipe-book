@@ -33,7 +33,6 @@
         };
 
         this.deleteRecipe = function (recipe, callback) {
-            console.log("The " + recipe.name + " recipe has been deleted!");
             $http.delete('api/recipes/' + recipe._id).then(callback);
         };
     });
