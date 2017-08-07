@@ -28,5 +28,10 @@
             dataService.selectedRecipe = {};
             $location.path('/');
         };
+
+        $scope.deleteIngredient = function (ingredient, $index) {
+            dataService.deleteIngredient(ingredient);
+            $scope.recipe.ingredients.splice($index, 1);
+        };
     });
 })();
